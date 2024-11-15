@@ -17,14 +17,21 @@ public class Board {
 
 
     Board(){
-      pieces.put(ChessPosition.A1,new Rook(true,ChessPosition.A1));
-      pieces.put(ChessPosition.H1,new Rook(true,ChessPosition.H1));
+      pieces.put(ChessPosition.A1,new Rook(true ));
+      pieces.put(ChessPosition.H1,new Rook(false ));
     }
     public Piece getFromPosition(ChessPosition pos) {
             return pieces.get(pos);
         
     }
+    public void update(ChessPosition from, ChessPosition to) {
+      Piece movingPiece = pieces.get(from);
+      if (movingPiece != null) {
+          pieces.remove(from);
+          pieces.put(to, movingPiece);
+      }
 
 
 
+}
 }

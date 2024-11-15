@@ -5,13 +5,13 @@ import com.simulation.chess.Domain.enums.ChessPosition;
 
 public abstract class Piece {
     private boolean color; 
-    protected ChessPosition curentPosition;
+ 
     
-    public Piece(boolean color,ChessPosition setUpPosition){
+    public Piece(boolean color){
         this.color=color;
-        this.curentPosition=setUpPosition;
+ 
     }
-    public void move(ChessPosition boardPlace ){this.curentPosition=boardPlace;} 
-    abstract boolean IsValid(ChessPosition tp,Board chessBoard);
+  
+    public abstract boolean IsValid(ChessPosition from, ChessPosition toGo, Board chessBoard);
 
 }
