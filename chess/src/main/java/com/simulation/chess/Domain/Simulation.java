@@ -12,7 +12,7 @@ import java.util.LinkedList;
         private BasePlayer white; 
         private BasePlayer black;
 
-        Simulation(Board board,BasePlayer white,BasePlayer black){
+        public Simulation(Board board,BasePlayer white,BasePlayer black){
 
             this.board=board;
             this.white=white;
@@ -27,12 +27,13 @@ import java.util.LinkedList;
             }
             return false;
         }
-        LinkedList<ChessMove> simulate(){ 
+        public LinkedList<ChessMove> simulate(){ 
 
           
         LinkedList<ChessMove> moves = new LinkedList<>();
         ChessMove chessMove=this.white.Move(); 
         while(this.checkLegal(chessMove)==false){
+            System.out.println("hello");
             chessMove=this.white.Move();
         }    
         moves.add(chessMove);

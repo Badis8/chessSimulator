@@ -8,8 +8,10 @@ import com.simulation.chess.Domain.pieces.Rook;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
 
 
+@Component
 public class Board {
 
     
@@ -18,7 +20,7 @@ public class Board {
 
     Board(){
       pieces.put(ChessPosition.A1,new Rook(true ));
-      pieces.put(ChessPosition.H1,new Rook(false ));
+      pieces.put(ChessPosition.B1,new Rook(false ));
     }
     public Piece getFromPosition(ChessPosition pos) {
             return pieces.get(pos);
