@@ -2,7 +2,6 @@ package com.simulation.chess.Domain.Player;
 
 import com.simulation.chess.Domain.Board;
 import com.simulation.chess.Domain.enums.ChessMove;
-import com.simulation.chess.Domain.enums.ChessPosition;
 import com.simulation.chess.Domain.enums.PieceName;
 
 public class RandomRookMovePlayer extends BasePlayer{
@@ -19,5 +18,7 @@ public class RandomRookMovePlayer extends BasePlayer{
        
       
     }
+
+ 
     
 }

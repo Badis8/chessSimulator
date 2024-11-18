@@ -1,7 +1,6 @@
 package com.simulation.chess.Domain;
 
 import com.simulation.chess.Domain.enums.ChessMove;
-import com.simulation.chess.Domain.enums.ChessPosition;
 import com.simulation.chess.Domain.enums.PieceName;
 import com.simulation.chess.Domain.pieces.Piece;
 import com.simulation.chess.Domain.pieces.Rook;
@@ -15,15 +14,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Board {
 
-    
-	Map<ChessPosition, Piece> pieces = new HashMap<>(); 
   Map<PieceName, ChessPosition> pieceMapper = new HashMap<>();  
   Piece[][] piecesBoard = new Piece[63][63];
 
     Board(){
 
-      pieceMapper.put(PieceName.ROOK,ChessPosition.A1);
-      pieceMapper.put(PieceName.ROOK,ChessPosition.B1); 
+ 
       piecesBoard[0][0]=new Rook(true ); 
       piecesBoard[1][1]=new Rook(false ); 
     }
@@ -46,5 +42,8 @@ public class Board {
 
 
 
+}
+    public boolean isWithinBounds(int row, int col) {
+      return row < 8 && col < 8;
 }
 }

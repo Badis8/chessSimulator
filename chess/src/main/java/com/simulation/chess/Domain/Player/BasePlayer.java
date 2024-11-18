@@ -2,7 +2,6 @@ package com.simulation.chess.Domain.Player;
 
 import com.simulation.chess.Domain.Board;
 import com.simulation.chess.Domain.enums.ChessMove;
-import com.simulation.chess.Domain.enums.ChessPosition;
 
 import ch.qos.logback.core.joran.sanity.Pair;
 
@@ -15,5 +14,7 @@ public abstract class BasePlayer {
         this.board = board;
     }
 
-    public abstract ChessMove Move();
+    public abstract ChessMove Move(); 
+
+ 
 }

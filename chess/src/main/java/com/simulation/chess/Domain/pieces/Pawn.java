@@ -1,6 +1,7 @@
 package com.simulation.chess.Domain.pieces;
 
 import com.simulation.chess.Domain.Board;
+import com.simulation.chess.Domain.ChessPosition;
 import com.simulation.chess.Domain.enums.ChessMove;
 
 public class Pawn extends Piece {
@@ -44,5 +45,11 @@ public class Pawn extends Piece {
         }
 
         return false;  
+    }
+
+    @Override
+    public ChessPosition[] Threads(Board chessBoard, int currentRow, int currentColumn) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'Threads'");
     }
 }
