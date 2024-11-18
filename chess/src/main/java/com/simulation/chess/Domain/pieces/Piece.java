@@ -1,5 +1,6 @@
 package com.simulation.chess.Domain.pieces;
 import com.simulation.chess.Domain.Board;
+import com.simulation.chess.Domain.enums.ChessMove;
 import com.simulation.chess.Domain.enums.ChessPosition;
 
 
@@ -12,6 +13,6 @@ public abstract class Piece {
  
     }
   
-    public abstract boolean IsValid(ChessPosition from, ChessPosition toGo, Board chessBoard);
+    public abstract boolean isValid(ChessMove chessmove, Board chessBoard);
 
 }

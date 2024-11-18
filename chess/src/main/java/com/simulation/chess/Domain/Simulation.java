@@ -2,6 +2,8 @@ package com.simulation.chess.Domain;
 
 
 import com.simulation.chess.Domain.Player.BasePlayer;
+import com.simulation.chess.Domain.Player.RandomRookMovePlayer;
+import com.simulation.chess.Domain.Player.randomRookMoverPlayer;
 import com.simulation.chess.Domain.enums.ChessMove;
 import com.simulation.chess.Domain.pieces.Piece; 
 import java.util.LinkedList;
@@ -9,10 +11,10 @@ import java.util.LinkedList;
     public class Simulation {
 
         private Board board;
-        private BasePlayer white; 
-        private BasePlayer black;
+        private RandomRookMovePlayer white; 
+        private randomRookMoverPlayer black;
 
-        public Simulation(Board board,BasePlayer white,BasePlayer black){
+        public Simulation(Board board,RandomRookMovePlayer white,randomRookMoverPlayer black){
 
             this.board=board;
             this.white=white;
@@ -21,26 +23,30 @@ import java.util.LinkedList;
 
         private boolean checkLegal(ChessMove chessMove){
 
-            Piece pieceToMove=this.board.getFromPosition(chessMove.getFrom());  
-            if (pieceToMove!=null){
-                return pieceToMove.IsValid(chessMove.getFrom(),chessMove.getTo(),this.board);
+            Piece pieceToMove= this.board.getFromPosition(chessMove.getOldRow(),chessMove.getOldColumn()); 
+           
+            if (pieceToMove!=null){ 
+                return pieceToMove.isValid(chessMove, board);
             }
+            
             return false;
         }
         public LinkedList<ChessMove> simulate(){ 
 
-          
+ 
         LinkedList<ChessMove> moves = new LinkedList<>();
         ChessMove chessMove=this.white.Move(); 
         while(this.checkLegal(chessMove)==false){
-            System.out.println("hello");
+            
+           
             chessMove=this.white.Move();
         }    
         moves.add(chessMove);
-
+    
         chessMove=this.black.Move(); 
         while(this.checkLegal(chessMove)==false){
-            chessMove=this.black.Move();
+           
+            chessMove=this.black.Move(); 
         }
         moves.add(chessMove);
         return moves;

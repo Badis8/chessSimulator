@@ -3,6 +3,7 @@ package com.simulation.chess.Domain.Player;
 import com.simulation.chess.Domain.Board;
 import com.simulation.chess.Domain.enums.ChessMove;
 import com.simulation.chess.Domain.enums.ChessPosition;
+import com.simulation.chess.Domain.enums.PieceName;
  
 public class randomRookMoverPlayer extends BasePlayer {
 
@@ -12,11 +13,12 @@ public class randomRookMoverPlayer extends BasePlayer {
 
     @Override
     public ChessMove Move() {
-        ChessPosition start = ChessPosition.A1;  
-        ChessPosition end =   ChessPosition.A5 ;
+      
+        
 
-        return new ChessMove(start, end);
+        return new ChessMove(1,1,1,5);
        
+
       
     }
     

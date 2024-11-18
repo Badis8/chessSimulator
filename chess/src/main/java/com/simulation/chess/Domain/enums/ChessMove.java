@@ -1,24 +1,46 @@
 package com.simulation.chess.Domain.enums;
 
 public class ChessMove {
-
  
-    private ChessPosition from; 
-    private ChessPosition to; 
+    private int oldRow;
+    private int oldColumn;
+ 
+    private int row; 
+    private int column;
+    public int getOldRow() {
+        return oldRow;
+    }
+    public ChessMove(int oldRow, int oldColumn, int row, int column) {
+        this.oldRow = oldRow;
+        this.oldColumn = oldColumn;
+  
+        this.row = row;
+        this.column = column;
+    }
+    public void setOldRow(int oldRow) {
+        this.oldRow = oldRow;
+    }
+    public int getOldColumn() {
+        return oldColumn;
+    }
+    public void setOldColumn(int oldColumn) {
+        this.oldColumn = oldColumn;
+    }
     
- 
-    public ChessMove(ChessPosition from, ChessPosition to) {
-        this.from = from;
-        this.to = to;
+    public int getRow() {
+        return row;
+    }
+    public void setRow(int row) {
+        this.row = row;
+    }
+    public int getColumn() {
+        return column;
+    }
+    public void setColumn(int column) {
+        this.column = column;
     }
 
- 
-    public ChessPosition getFrom() {
-        return from;
-    }
 
  
-    public ChessPosition getTo() {
-        return to;
-    }
+    
 }
