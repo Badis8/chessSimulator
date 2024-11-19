@@ -1,5 +1,8 @@
 package com.simulation.chess.Domain.pieces;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.simulation.chess.Domain.Board;
 import com.simulation.chess.Domain.ChessPosition;
 import com.simulation.chess.Domain.enums.ChessMove;
@@ -47,9 +50,26 @@ public class Pawn extends Piece {
         return false;  
     }
 
-    @Override
+   @Override
     public ChessPosition[] Threads(Board chessBoard, int currentRow, int currentColumn) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'Threads'");
+        int[][] directions = {
+            {1, 1}, {1, -1}
+      
+        };
+
+        List<ChessPosition> threats = new ArrayList<>();
+
+        for (int[] direction : directions) {
+            int newRow = currentRow + direction[0];
+            int newColumn = currentColumn + direction[1];
+
+           
+            if (newRow >= 0 && newRow < 8 &&
+                newColumn >= 0 && newColumn < 8) {
+                threats.add(new ChessPosition(newRow, newColumn));
+            }
+        }
+
+        return threats.toArray(new ChessPosition[0]);
     }
 }

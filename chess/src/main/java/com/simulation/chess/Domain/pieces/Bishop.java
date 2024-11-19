@@ -1,5 +1,8 @@
 package com.simulation.chess.Domain.pieces;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.simulation.chess.Domain.Board;
 import com.simulation.chess.Domain.ChessPosition;
 import com.simulation.chess.Domain.enums.ChessMove;
@@ -45,7 +48,36 @@ public class Bishop extends Piece {
 
     @Override
     public ChessPosition[] Threads(Board chessBoard, int currentRow, int currentColumn) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'Threads'");
+        List<ChessPosition> threatenedPositions = new ArrayList<>();
+ 
+        int[][] directions = {
+            {1, 1},  
+            {-1, -1}
+           
+        };
+
+        for (int[] direction : directions) {
+            int row = currentRow;
+            int col = currentColumn;
+
+            while (true) {
+                row += direction[0];
+                col += direction[1];
+ 
+                if (!chessBoard.isWithinBounds(row, col)) {
+                    break;  
+                }
+ 
+                threatenedPositions.add(new ChessPosition(row, col));
+
+               
+                if (chessBoard.getFromPosition(row, col) != null) {
+                    break;
+                }
+            
+        }
+
     }
+    return threatenedPositions.toArray(new ChessPosition[0]);
+}
 }

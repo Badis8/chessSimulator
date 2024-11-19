@@ -1,6 +1,10 @@
 package com.simulation.chess.Domain.pieces;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.simulation.chess.Domain.Board;
+import com.simulation.chess.Domain.ChessPosition;
 import com.simulation.chess.Domain.enums.ChessMove;
 
 public class Knight extends Piece {
@@ -27,5 +31,27 @@ public class Knight extends Piece {
         }
 
         return false;  
+    }
+
+      @Override
+    public ChessPosition[] Threads(Board chessBoard, int currentRow, int currentColumn) {
+        int[][] directions = {
+            {2, 1}, {2, -1}, {-2, 1}, {-2, -1},
+            {1, 2}, {1, -2}, {-1, 2}, {-1, -2}
+        };
+
+        List<ChessPosition> threats = new ArrayList<>();
+
+        for (int[] direction : directions) {
+            int newRow = currentRow + direction[0];
+            int newColumn = currentColumn + direction[1];
+
+            if (newRow >= 0 && newRow < 8 &&
+                newColumn >= 0 && newColumn < 8) {
+                threats.add(new ChessPosition(newRow, newColumn));
+            }
+        }
+
+        return threats.toArray(new ChessPosition[0]);
     }
 }
