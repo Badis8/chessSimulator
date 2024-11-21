@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <!-- Top Row -->
+    <div class="top">
+      <div class="wrapper-inner">
+        <div class="box-inner" *ngFor="let letter of letters">{{ letter }}</div>
+      </div>
+    </div>
+   
+    <div 
+      class="box" 
+      *ngFor="let box of boxes; let i = index" 
+      [id]="generateId(i)">
+    </div>
+ 
+    <div class="bottom">
+      <div class="wrapper-inner">
+        <div class="box-inner" *ngFor="let letter of letters">{{ letter }}</div>
+      </div>
+    </div>
+  </div>
+  
