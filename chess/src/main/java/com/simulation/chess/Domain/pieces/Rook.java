@@ -7,6 +7,7 @@ import java.util.List;
 import com.simulation.chess.Domain.Board;
 import com.simulation.chess.Domain.ChessPosition;
 import com.simulation.chess.Domain.enums.ChessMove;
+import com.simulation.chess.Domain.enums.PieceName;
  
 
     public class Rook extends Piece {
@@ -48,7 +49,7 @@ import com.simulation.chess.Domain.enums.ChessMove;
         }
 
         @Override
-    public ChessPosition[] Threads(Board chessBoard, int currentRow, int currentColumn) {
+        public  List<ChessPosition> Threads(Board chessBoard, int currentRow, int currentColumn) {
         List<ChessPosition> threatenedPositions = new ArrayList<>();
  
         int[][] directions = {
@@ -80,6 +81,11 @@ import com.simulation.chess.Domain.enums.ChessMove;
         }
 
         
-        return threatenedPositions.toArray(new ChessPosition[0]);
+        return threatenedPositions;
     }
+
+        @Override
+        public PieceName getSymbol() {
+            return this.color ?  PieceName.R : PieceName.r;
+        }
     }

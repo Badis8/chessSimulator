@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.simulation.chess.Domain.Board;
 import com.simulation.chess.Domain.Simulation;
-import com.simulation.chess.Domain.Player.RandomRookMovePlayer;
-import com.simulation.chess.Domain.Player.randomRookMoverPlayer;
+import com.simulation.chess.Domain.Player.KrikorSevagMekhitarian;
+import com.simulation.chess.Domain.Player.StevenZierk;
 import com.simulation.chess.Domain.enums.ChessMove;
 
 @RestController
@@ -23,12 +23,14 @@ public class ChessController {
    
     public ChessController(Board board) {
         this.board = board; 
-        this.simulation=new Simulation(board,new RandomRookMovePlayer(board),new randomRookMoverPlayer(board));
+        this.simulation=new Simulation(board,new KrikorSevagMekhitarian(board),new StevenZierk(board));
     } 
-    @GetMapping("/move")
+    @GetMapping("/simulate")
     public LinkedList<ChessMove>  simulate(){
             
             return this.simulation.simulate();
-    }
+    } 
+
+ 
 
 }

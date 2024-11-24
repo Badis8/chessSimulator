@@ -41,6 +41,13 @@ public class ChessMove {
     }
 
 
- 
+    @Override
+    public String toString() {
+        return String.format(
+            "Move from (%d, %d) to (%d, %d)", 
+            oldRow, oldColumn, row, column
+        );
+    }
+    
     
 }

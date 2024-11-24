@@ -6,6 +6,7 @@ import java.util.List;
 import com.simulation.chess.Domain.Board;
 import com.simulation.chess.Domain.ChessPosition;
 import com.simulation.chess.Domain.enums.ChessMove;
+import com.simulation.chess.Domain.enums.PieceName;
 
 public class Knight extends Piece {
 
@@ -34,7 +35,7 @@ public class Knight extends Piece {
     }
 
       @Override
-    public ChessPosition[] Threads(Board chessBoard, int currentRow, int currentColumn) {
+    public List<ChessPosition>  Threads(Board chessBoard, int currentRow, int currentColumn) {
         int[][] directions = {
             {2, 1}, {2, -1}, {-2, 1}, {-2, -1},
             {1, 2}, {1, -2}, {-1, 2}, {-1, -2}
@@ -52,6 +53,10 @@ public class Knight extends Piece {
             }
         }
 
-        return threats.toArray(new ChessPosition[0]);
+        return threats;
+    } 
+    @Override
+    public PieceName getSymbol() {
+        return this.color ? PieceName.N: PieceName.n;
     }
 }

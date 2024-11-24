@@ -6,6 +6,7 @@ import java.util.List;
 import com.simulation.chess.Domain.Board;
 import com.simulation.chess.Domain.ChessPosition;
 import com.simulation.chess.Domain.enums.ChessMove;
+import com.simulation.chess.Domain.enums.PieceName;
 
 public class Pawn extends Piece {
 
@@ -20,20 +21,21 @@ public class Pawn extends Piece {
         int targetRow = chessmove.getRow();
         int targetColumn = chessmove.getColumn();
         
-      
-        int direction = super.color ? -1 : 1;
+    
+        int direction = super.color ? 1 : -1;
 
  
         if (targetColumn == currentColumn && targetRow == currentRow + direction) {
+ 
             if (chessBoard.getFromPosition(targetRow, targetColumn) == null) {
                 return true;  
             }
         }
 
- 
+            
         if (targetColumn == currentColumn && 
             targetRow == currentRow + 2 * direction &&
-            (super.color ? currentRow == 6 : currentRow == 1)) {  
+            (super.color ? currentRow == 1 : currentRow == 6)) {  
             if (chessBoard.getFromPosition(currentRow + direction, currentColumn) == null &&
                 chessBoard.getFromPosition(targetRow, targetColumn) == null) {
                 return true;  
@@ -46,12 +48,12 @@ public class Pawn extends Piece {
                 return true;  
             }
         }
-
+    
         return false;  
     }
 
    @Override
-    public ChessPosition[] Threads(Board chessBoard, int currentRow, int currentColumn) {
+    public List<ChessPosition> Threads(Board chessBoard, int currentRow, int currentColumn) {
         int[][] directions = {
             {1, 1}, {1, -1}
       
@@ -70,6 +72,10 @@ public class Pawn extends Piece {
             }
         }
 
-        return threats.toArray(new ChessPosition[0]);
+        return threats;
+    } 
+    @Override
+    public PieceName getSymbol() {
+        return this.color ? PieceName.P : PieceName.p;
     }
 }
